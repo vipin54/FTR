@@ -3,6 +3,7 @@ package com.org.ftr.controller;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +33,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/createuser")
-	public String createNewUser(@RequestBody FtrUser newUser) {
+	public String createNewUser(@RequestBody FtrUser newUser) {  
 	
 		
 			
@@ -43,6 +44,12 @@ public class UserController {
 	@PutMapping("/update")
 	public String updateUserdetails( @RequestBody FtrUser user){
 		return userService.updateUser(user);
+	}
+	
+	@DeleteMapping("/{id}")
+	public String deleteuserbyid(@PathVariable("id") Integer id) {
+		return userService.userDelete(id);
+		
 	}
 	
 }
