@@ -19,6 +19,12 @@ public class UserService {
 		return userRepository.findById(id);
 	}
 	
+	public String  createNewUser(FtrUser newUser){
+				  
+				userRepository.save(newUser);
+				return "New user has been created";
+	}
+	
 	public String updateUser( FtrUser user) {
 		boolean isPresent = userRepository.existsById(user.getUser_id());
 		if(isPresent) {

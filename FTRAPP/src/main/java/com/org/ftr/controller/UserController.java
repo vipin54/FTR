@@ -31,6 +31,15 @@ public class UserController {
 		return new FtrUser() ;
 	}
 	
+	@PostMapping("/createuser")
+	public String createNewUser(@RequestBody FtrUser newUser) {
+	
+		
+			
+		     return userService.createNewUser(newUser);
+		     
+		}
+	
 	@PutMapping("/update")
 	public String updateUserdetails( @RequestBody FtrUser user){
 		return userService.updateUser(user);
