@@ -31,8 +31,8 @@ public class FtrUser {
 	
 	String nationality;
 	
-	@Column(length = 5)
-	@Size(min = 3, max = 5)
+//	@Column(length = 5)
+//	@Size(min = 3, max = 5)
 	String passport_number;
 	
 	String permanent_address;
