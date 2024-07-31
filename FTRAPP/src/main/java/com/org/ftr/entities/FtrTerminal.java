@@ -1,40 +1,32 @@
 package com.org.ftr.entities;
 
-import jakarta.annotation.Nonnull;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "ftr_terminals")
-
 public class FtrTerminal {
 	
 	@Id
 	String terminal_id;
 	
-	@Nonnull
 	String terminal_name;
 	
-	@Nonnull
 	String country;
 	
-	@Nonnull
 	String item_type;
 	
-	@Nonnull
 	String terminal_Description;
 	
-	@Nonnull
 	Integer capacity;
 	
-	@Nonnull
 	Integer available_capacity;
 	
-	@Nonnull
 	String status;
 	
-	@Nonnull
+	@Column(name = "harborlocation")
 	String harborLocation;
 
 	public String getTerminal_id() {
