@@ -32,6 +32,29 @@ public class TerminalService {
 		else {
 			   return "Terminal already Present";
 		}
+	}
+	
+	//Update terminal
+	public String updateTerminal(FtrTerminal terminal) {
+		boolean isPresent = terminalRepository.existsById(terminal.getTerminal_id());
+		if(isPresent) {
+			terminalRepository.save(terminal);
+			return "Details related to :" + terminal.getTerminal_name()+ "is Saved Successfully";
+		}
+		else
+			return "No user found with this ID";
+	}
+	
+	//Delete Terminal
+	public String terminalDelete(String id) {
+		Optional<FtrTerminal>  deleteTerminal =terminalRepository.findById(id);
+		if(!deleteTerminal.isEmpty()) {
+			terminalRepository.deleteById(id);
+			  return "Terminal deleted Successfully";
+		}
+		else {
+			return "Terminal does not exist";
+		}
 	}	
 
 }
