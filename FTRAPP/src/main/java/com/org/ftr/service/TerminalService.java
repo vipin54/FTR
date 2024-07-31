@@ -17,9 +17,21 @@ public class TerminalService {
 	@Autowired
 	TerminalRepository terminalRepository;
 	
-	// Fetching user by id
+	// Fetching terminal by id
 	public Optional<FtrTerminal> getterminalbyID(String id) {
 			return terminalRepository.findById(id);
 		}
+	// Insert new terminal
+	public String createNewTerminal(FtrTerminal newTerminal) {
+		Optional<FtrTerminal> terminalCheck = terminalRepository.findById(newTerminal.getTerminal_id());
+		if(terminalCheck.isEmpty())
+		{
+				terminalRepository.save(newTerminal);
+				return "New terminal has been created";
+		}
+		else {
+			   return "Terminal already Present";
+		}
+	}	
 
 }
